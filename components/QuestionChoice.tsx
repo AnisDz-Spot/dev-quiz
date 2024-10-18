@@ -1,4 +1,5 @@
 import useStore from "@/lib/store";
+import { Question } from "@/lib/types";
 import Image from "next/image";
 
 const QuestionChoice = ({
