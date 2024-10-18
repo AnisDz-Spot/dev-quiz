@@ -23,10 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`box-border flex justify-center w-screen h-screen overflow-x-hidden py-14 bg-bg-light bg-no-repeat bg-cover dark:bg-text-color dark:bg-bg-dark ${rubikFont.variable} antialiased`}
+        className={`box-border flex justify-center w-screen h-screen overflow-x-hidden py-4 lg:py-14 bg-bg-light bg-no-repeat bg-cover dark:bg-text-color dark:bg-bg-dark ${rubikFont.variable} antialiased`}
       >
         <ThemeProvider attribute="class">
-          <main className="box-border w-[90vw] lg:w-[80vw]">
+          <main className="box-border w-[95vw] lg:w-[80vw]">
             <Nav />
             {children}
           </main>

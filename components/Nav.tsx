@@ -49,12 +49,13 @@ const Nav = () => {
                 src={`/assets/images/icon-${path
                   .replace("/", "")
                   .toLocaleLowerCase()}.svg`}
-                alt="css icon"
-                width={36}
-                height={36}
+                alt="icon"
+                width={28}
+                height={28}
+                className="lg:w-[36px] lg:h-[36px]"
               />
             </div>
-            <h1 className="text-text-color text-2xl lg:text-3xl font-bold dark:text-white">
+            <h1 className="text-text-color text-xl lg:text-3xl font-bold dark:text-white">
               {path.replace("/", "")}
             </h1>
           </>
@@ -70,11 +71,11 @@ const Nav = () => {
           height={32}
         />
         <button
-          className="relative bg-purple w-14 h-6 rounded-full flex items-center px-1"
+          className="relative bg-purple w-12 lg:w-14 h-5 lg:h-6 rounded-full flex items-center px-1"
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
         >
           <span
-            className={`bg-white w-5 h-5 inline-block rounded-full absolute ${
+            className={`bg-white w-4 lg:w-5 h-4 lg:h-5 inline-block rounded-full absolute ${
               theme === "light" ? "left-1" : "right-1"
             }`}
           ></span>
