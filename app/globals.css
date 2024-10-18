@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-rubik), monospace;
+}
+
+/* [data-theme="dark"],
+[data-theme="dark"] body {
+  background: url("/assets/images/pattern-background-mobile-dark.svg") no-repeat;
+  background-size: cover;
+  background-color: #313e51;
+  color: #fff;
+} */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

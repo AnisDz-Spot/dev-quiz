@@ -1,0 +1,88 @@
+"use client";
+
+import useStore from "@/lib/store";
+import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+
+type languageBg = {
+  "/HTML": string;
+  "/CSS": string;
+  "/JavaScript": string;
+  "/Accessibility": string;
+};
+
+const Nav = () => {
+  const { theme, setTheme } = useTheme();
+  const subject = useStore((state) => state.subject);
+  const updateSubject = useStore((state) => state.updateSubject);
+  const path = usePathname();
+
+  const langBgColor: languageBg = {
+    "/HTML": "bg-html-bg",
+    "/CSS": "bg-css-bg",
+    "/JavaScript": "bg-js-bg",
+    "/Accessibility": "bg-accessibility-bg",
+  };
+
+  useEffect(() => {
+    const newPath = path.replace("/", "");
+    updateSubject(newPath);
+  }, [path]);
+
+  return (
+    <nav className="w-full h-1/6 flex items-center justify-between">
+      <div className="flex items-center gap-4 lg:gap-6">
+        {subject && path !== "/result" && (
+          <>
+            <div
+              className={`${
+                langBgColor[path as keyof languageBg]
+              } rounded-lg p-1`}
+            >
+              <img
+                src={`/assets/images/icon-${path.replace("/", "")}.svg`}
+                alt="css icon"
+                width="36px"
+                height="36px"
+              />
+            </div>
+            <h1 className="text-text-color text-2xl lg:text-3xl font-bold dark:text-white">
+              {path.replace("/", "")}
+            </h1>
+          </>
+        )}
+      </div>
+      <div className="flex justify-center items-center gap-3">
+        <img
+          src={`/assets/images/icon-sun-${
+            theme === "light" ? "dark" : "light"
+          }.svg`}
+          alt="Moon"
+          width="32px"
+          height="32px"
+        />
+        <button
+          className="relative bg-purple w-14 h-6 rounded-full flex items-center px-1"
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        >
+          <span
+            className={`bg-white w-5 h-5 inline-block rounded-full absolute ${
+              theme === "light" ? "left-1" : "right-1"
+            }`}
+          ></span>
+        </button>
+        <img
+          src={`/assets/images/icon-moon-${
+            theme === "light" ? "dark" : "light"
+          }.svg`}
+          alt="Moon"
+          width="32px"
+          height="32px"
+        />
+      </div>
+    </nav>
+  );
+};
+
+export default Nav;
