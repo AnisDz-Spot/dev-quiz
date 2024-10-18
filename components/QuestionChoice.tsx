@@ -1,4 +1,5 @@
 import useStore from "@/lib/store";
+import Image from "next/image";
 
 const QuestionChoice = ({
   questions,
@@ -31,11 +32,13 @@ const QuestionChoice = ({
           </span>
           <p className="text-text-color font-semibold text-xl  w-full">{q}</p>
           {userChoice && (
-            <img
+            <Image
               src={`/assets/images/icon-${
                 q == answer ? "correct" : "error"
               }.svg`}
               alt="Correct answer icon"
+              width={36}
+              height={36}
             />
           )}
         </div>

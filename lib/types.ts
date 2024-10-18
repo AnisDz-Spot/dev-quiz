@@ -10,10 +10,6 @@ type Quiz = {
     answer: string;
   }
   
-  type QuizData = {
-    quizzes: Quiz[];
-  }
-
 type State = {
   userScore: number;
   userAnswer: string;

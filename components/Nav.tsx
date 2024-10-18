@@ -2,6 +2,7 @@
 
 import useStore from "@/lib/store";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
@@ -16,7 +17,7 @@ const Nav = () => {
   const { theme, setTheme } = useTheme();
   const subject = useStore((state) => state.subject);
   const updateSubject = useStore((state) => state.updateSubject);
-  const path = usePathname();
+  const path = usePathname() || "";
 
   const langBgColor: languageBg = {
     "/HTML": "bg-html-bg",
@@ -26,8 +27,12 @@ const Nav = () => {
   };
 
   useEffect(() => {
-    const newPath = path.replace("/", "");
-    updateSubject(newPath);
+    if (path === "/result") {
+      return;
+    } else {
+      const newPath = path.replace("/", "");
+      updateSubject(newPath);
+    }
   }, [path]);
 
   return (
@@ -40,11 +45,11 @@ const Nav = () => {
                 langBgColor[path as keyof languageBg]
               } rounded-lg p-1`}
             >
-              <img
+              <Image
                 src={`/assets/images/icon-${path.replace("/", "")}.svg`}
                 alt="css icon"
-                width="36px"
-                height="36px"
+                width={36}
+                height={36}
               />
             </div>
             <h1 className="text-text-color text-2xl lg:text-3xl font-bold dark:text-white">
@@ -54,13 +59,13 @@ const Nav = () => {
         )}
       </div>
       <div className="flex justify-center items-center gap-3">
-        <img
+        <Image
           src={`/assets/images/icon-sun-${
             theme === "light" ? "dark" : "light"
           }.svg`}
           alt="Moon"
-          width="32px"
-          height="32px"
+          width={32}
+          height={32}
         />
         <button
           className="relative bg-purple w-14 h-6 rounded-full flex items-center px-1"
@@ -72,13 +77,13 @@ const Nav = () => {
             }`}
           ></span>
         </button>
-        <img
+        <Image
           src={`/assets/images/icon-moon-${
             theme === "light" ? "dark" : "light"
           }.svg`}
           alt="Moon"
-          width="32px"
-          height="32px"
+          width={32}
+          height={32}
         />
       </div>
     </nav>

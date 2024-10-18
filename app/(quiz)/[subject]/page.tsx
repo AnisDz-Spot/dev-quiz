@@ -9,7 +9,7 @@ import useStore from "@/lib/store";
 const Subject = () => {
   const { subject }: { subject: string } = useParams();
   const [questionIndex, setQuestionIndex] = useState(0); // Stores Current Question Index
-  const userChoice = useStore((state) => state.userAnswer); // Stores Clicked Choice
+  const userChoice = useStore((state) => state.userAnswer) || ""; // Stores Clicked Choice
   const updateScore = useStore((state) => state.updateScore); // Update User Score
   const userScore = useStore((state) => state.userScore); // Get User Score
   const updateUserAnswer = useStore((state) => state.getUserAnswer); // Update User Score
@@ -34,12 +34,12 @@ const Subject = () => {
 
   return (
     <section className="flex flex-col lg:flex-row py-5 mt-5 lg:mt-5">
-      <div className="relative w-full lg:w-[48%] min-h-[50vh] lg:pr-12 flex flex-col justify-between">
+      <div className="relative w-full lg:w-[48%] lg:min-h-[60vh] lg:pr-12 flex flex-col justify-between">
         <div>
           <p className="text-text-color-p italic mb-8 dark:text-white">
             Question {questionIndex + 1} of 10
           </p>
-          <p className="text-text-color text-[2.5rem] font-medium dark:text-white">
+          <p className="text-text-color text-[2rem] font-medium dark:text-white">
             {question}
           </p>
           {userChoice && (
