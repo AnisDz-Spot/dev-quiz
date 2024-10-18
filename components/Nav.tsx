@@ -46,7 +46,9 @@ const Nav = () => {
               } rounded-lg p-1`}
             >
               <Image
-                src={`/assets/images/icon-${path.replace("/", "")}.svg`}
+                src={`/assets/images/icon-${path
+                  .replace("/", "")
+                  .toLocaleLowerCase()}.svg`}
                 alt="css icon"
                 width={36}
                 height={36}
