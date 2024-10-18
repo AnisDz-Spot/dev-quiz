@@ -24,13 +24,14 @@ const Subject = () => {
     }
   };
 
+  // Corrected useEffect to include all necessary dependencies
   useEffect(() => {
     if (userChoice === answer) updateScore();
-  }, [userChoice]);
+  }, [userChoice, answer, updateScore]);
 
   useEffect(() => {
     updateUserAnswer("");
-  }, [questionIndex]);
+  }, [questionIndex, updateUserAnswer]);
 
   return (
     <section className="flex flex-col lg:flex-row py-5 mt-5 lg:mt-5">

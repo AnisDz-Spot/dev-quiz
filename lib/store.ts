@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { Action, State } from "./types";
 
 const useStore = create<State & Action>((set) => ({
   userScore: 0,

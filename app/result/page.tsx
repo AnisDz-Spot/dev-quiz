@@ -1,7 +1,6 @@
 "use client";
 
 import useStore from "@/lib/store";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const Result = () => {
@@ -28,19 +27,9 @@ const Result = () => {
       </div>
       <div className="w-full lg:w-1/2 px-10 flex flex-col justify-center items-center">
         <div className="w-full py-10 bg-white rounded-2xl">
-          <div className="flex justify-center items-center">
-            <div className="bg-css-bg rounded-lg p-1">
-              <Image
-                src="/assets/images/icon-css.svg"
-                alt="Css icon"
-                width={32}
-                height={32}
-              />
-            </div>
-            <p className="text-text-color text-2xl ml-4 font-medium">
-              {subject}
-            </p>
-          </div>
+          <p className="text-center text-text-color text-2xl font-medium">
+            Subject: {subject}
+          </p>
           <h3 className="text-text-color text-[8rem] text-center font-semibold">
             {userScore}
           </h3>

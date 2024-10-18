@@ -1,22 +1,22 @@
-type Quiz = {
+export type Quiz = {
     title: string;
     icon: string;
     questions: Question[];
   }
   
-  type Question = {
+export type Question = {
     question: string;
     options: string[];
     answer: string;
   }
   
-type State = {
+export type State = {
   userScore: number;
   userAnswer: string;
   subject: string;
 }
 
-type Action = {
+export type Action = {
   getUserAnswer: (choice : string) => void;
   updateScore: (reset?: number) => void;
   updateSubject: (subject: string) => void;

@@ -1,4 +1,5 @@
 import quiz from "@/data/data.json"
+import { Question, Quiz } from "./types";
 
 export const getQuestions = (subject: string, quesIndex : number) => { 
     const subjectData: Quiz[] = quiz.quizzes.filter(

@@ -33,7 +33,7 @@ const Nav = () => {
       const newPath = path.replace("/", "");
       updateSubject(newPath);
     }
-  }, [path]);
+  }, [path, updateSubject]);
 
   return (
     <nav className="w-full h-1/6 flex items-center justify-between">
